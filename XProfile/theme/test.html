@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            background-color: black;
+            display:none;
+            width:200px;
+            height:200px;
+            border: 2px solid white;
+        }
+    </style>
+    
+</head>
+<body>
+    <button onclick="showWindow()">Hello</button>
+    <div class="box">White box</div>
+
+    <script>
+        function showWindow() {
+            var box = document.getElementById("box");
+
+            box.style.border = "block";
+        }
+    </script>
+</body>
+</html>

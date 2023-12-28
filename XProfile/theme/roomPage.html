@@ -41,14 +41,9 @@
     <link rel="stylesheet" href="css/style.css" />
 
     <!-- # Bootstrap -->
-    <!-- <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
-    /> -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"/>
+
 
     <style>
       .carousel-img {
@@ -192,7 +187,7 @@
     <hr />
 
     <!-- Room page -->
-    <section class="section pt-0">
+    <section class="section pt-0 pb-1">
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-lg-6">
@@ -261,7 +256,7 @@
   
               <hr class="m-2">
   
-              <div class="row border rounded m-2">
+              <div class="row border rounded m-3">
                 <div>
                   <p>歡迎來到這個位於市中心的精美公寓！這個寬敞而舒適的公寓擁有現代化設施和溫馨的氛圍，讓您在繁華的城市中找到安靜和放鬆。<br><br><br>
 
@@ -281,20 +276,53 @@
     <!-- 製作設備部分和下訂部分 -->
     <section class="section p-0">
       <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-6" id="fix-information">
+        <div class="row justify-content-center" id = "bookButtom">
+          <div class="sticky-top" id="fix-information">
             <img class="img-fluid" src="./images/illustration-1.png" alt="">
           </div>
 
           <!-- 此為固定方塊 -->
           <div id="fix-box">
-            <div class="border rounded m-2">
+            <div class="border rounded shadow" style="width: 404px; height:376">
               <div>
-                <p>歡迎來到這個位於市中心的精美公寓！這個寬敞而舒適的公寓擁有現代化設施和溫馨的氛圍，讓您在繁華的城市中找到安靜和放鬆。<br><br><br>
-
-                  這個公寓擁有充足的空間，包括寬敞的起居室、設備齊全的廚房和舒適的臥室。起居室設計溫馨舒適，家具擺設簡約時尚，營造出寧靜放鬆的氛圍，您可以在這裡輕鬆閱讀書籍、觀看電影或與家人朋友共度愉快時光。<br><br><br>
-                  
-                  廚房配備了高品質的電器和充足的存儲空間，讓您輕鬆準備美味佳餚。無論是一頓家庭晚餐還是輕鬆的早餐，這裡都能滿足您的需要。同時，您也可以在陽台上享受一杯咖啡或茶，欣賞城市的美景。</p>
+                <h4 class="m-2">$ 8888 TWD/晚 </h4>
+                <form action="#!" method="post" class="m-5">
+                  <div class="row">
+                    <div class="col-lg-6 mb-4 pb-2">
+                      <div class="form-group">
+                        <label for="loan_amount" class="form-label">姓 名</label>
+                        <input type="text" class="form-control shadow-none" id="loan_amount" placeholder="ex: 克里斯">
+                      </div>
+                    </div>
+                    <div class="col-lg-6 mb-4 pb-2">
+                      <div class="form-group">
+                        <label for="loan_how_long_for" class="form-label">年 齡</label>
+                        <input type="number" class="form-control shadow-none" id="loan_how_long_for" placeholder="ex: 12">
+                      </div>
+                    </div>
+                    <div class="col-lg-12 mb-4 pb-2">
+                      <div class="form-group">
+                        <label for="loan_repayment" class="form-label">付 款 方 式</label>
+                        <input type="number" class="form-control shadow-none" id="loan_repayment" disabled>
+                      </div>
+                    </div>
+                    <div class="col-lg-6 mb-4 pb-2">
+                      <div class="form-group">
+                        <label for="loan_full_name" class="form-label">備 註</label>
+                        <input type="text" class="form-control shadow-none" id="loan_full_name">
+                      </div>
+                    </div>
+                    <div class="col-lg-6 mb-4 pb-2">
+                      <div class="form-group">
+                        <label for="loan_email_address" class="form-label">信 箱 地 址</label>
+                        <input type="email" class="form-control shadow-none" id="loan_email_address">
+                      </div>
+                    </div>
+                    <div class="col-lg-12">
+                      <button type="submit" class="btn w-100" style="color:#00AEAE; background-color: #e0f2e5;">提 交 資 料</button>
+                    </div>
+                  </div>
+                </form>
               </div> 
             </div>
           </div>
@@ -314,13 +342,25 @@
           var bookPage = document.getElementById("fix-box");
           var information = document.getElementById("fix-information")
           var scrollPosition = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
-          
+
+          // 計算寬度
+          var rightWidth = document.getElementById("bookButtom").offsetWidth;
+          console.log(rightWidth);
+          var imageWidth = document.getElementById("fix-box").offsetWidth;
+          var mathWidth = rightWidth - imageWidth;
+          console.log(mathWidth);
           console.log(scrollPosition);
-          if(scrollPosition > 1038) {
-            bookPage.setAttribute("class", "col-5 fixed-top me-5 ms-auto"); // 使用 setAttribute 修正类名
+
+          // 下滑時訂購單可以貼在旁邊以供參考
+          if(scrollPosition > 890) {
+            bookPage.setAttribute("class", "col-4 fixed-top mt-4"); // 使用 setAttribute 修正类名
+            bookPage.setAttribute("style", "width:416px; height:436px; left:842px ")
+            information.setAttribute("class", "col-6 sticky-top")
+            information.setAttribute("style", "right:598px;")
           } else {
-            bookPage.setAttribute("class", "col-5"); // 使用 setAttribute 修正类名
-            information.setAttribute("class", "col-5")
+            bookPage.setAttribute("class", "col-4"); // 使用 setAttribute 修正类名
+            bookPage.setAttribute("style", "width:416px; height:436px; ")
+            information.setAttribute("class", "col-6")
           }
         })
       })
